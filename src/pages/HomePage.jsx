@@ -1,31 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { getAllProducts } from '../utils/local-data';
+import { getAllProducts, getProductsByName } from '../utils/api';
 import ProductAppBody from '../components/ProductAppBody';
 
 const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get('keyword') || '';
+  const name_like = searchParams.get('name_like') || '';
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    setProducts(() => getAllProducts());
-  }, []);
+    if (name_like) {
+      getProductsByName(name_like).then(({ data }) => {
+        setProducts(data);
+      });
+    }
 
-  const onSearchHandler = ({ target }) => {
-    setSearchParams({
-      keyword: target.value,
-    });
+    if (!name_like) {
+      getAllProducts().then(({ data }) => {
+        setProducts(data);
+      });
+    }
+  }, [name_like]);
+
+  const onSearchHandler = (keyword) => {
+    setSearchParams({ name_like: keyword });
   };
 
   return (
-    <>
-      <ProductAppBody
-        products={products}
-        keyword={keyword}
-        onSearch={onSearchHandler}
-      />
-    </>
+    <ProductAppBody
+      products={products}
+      keyword={keyword}
+      onSearch={onSearchHandler}
+    />
   );
 };
 

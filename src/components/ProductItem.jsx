@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ProductItem = ({ id, imageUrl, name, description, price }) => {
   return (
     <Link to={`/products/${id}`}>
-      <div className='bg-white rounded-lg overflow-hidden'>
+      <div className='bg-white rounded-lg overflow-hidden shadow-xl'>
         <img className='aspect-square object-cover' src={imageUrl} alt={name} />
         <div className='p-[5%]'>
           <div className='text-[1em] font-semibold'>{name}</div>

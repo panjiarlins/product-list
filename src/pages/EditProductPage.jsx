@@ -1,6 +1,6 @@
 import React from 'react';
 import EditProductInput from '../components/EditProductInput';
-import { editProduct } from '../utils/local-data';
+import { editProduct } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 
 const EditProductPage = () => {

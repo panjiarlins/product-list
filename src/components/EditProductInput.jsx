@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProduct } from '../utils/local-data';
+import { getProduct } from '../utils/api';
 
 const EditProductInput = ({ onEditProduct }) => {
   const { id } = useParams();
@@ -10,11 +10,12 @@ const EditProductInput = ({ onEditProduct }) => {
   const [price, setPrice] = useState('');
 
   useEffect(() => {
-    const product = getProduct(id);
-    setImageUrl(product.imageUrl);
-    setName(product.name);
-    setDescription(product.description);
-    setPrice(product.price);
+    getProduct(id).then(({ data }) => {
+      setImageUrl(data.imageUrl);
+      setName(data.name);
+      setDescription(data.description);
+      setPrice(data.price);
+    });
   }, [id]);
 
   const onEditProductHandler = (event) => {

@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { deleteProduct, getProduct } from '../utils/local-data';
+import { deleteProduct, getProduct } from '../utils/api';
 import DeleteProductButton from '../components/DeleteProductButton';
 import EditProductButton from '../components/EditProductButton';
 
 const DetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState('');
 
   useEffect(() => {
-    setProduct(() => getProduct(id));
+    getProduct(id).then(({ data }) => {
+      console.log(data);
+      setProduct(data);
+    });
   }, [id]);
 
   const onDeleteHandler = () => {

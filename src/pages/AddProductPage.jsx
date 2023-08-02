@@ -1,5 +1,5 @@
 import React from 'react';
-import { addProduct } from '../utils/local-data';
+import { addProduct } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import AddProductInput from '../components/AddProductInput';
 

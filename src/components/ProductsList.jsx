@@ -6,10 +6,9 @@ const ProductsList = ({ products }) => {
     <div className='mt-5'>
       {products.length ? (
         <div
+          className='grid justify-evenly gap-[3%]'
           style={{
-            display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 200px))',
-            gap: '3%',
           }}
         >
           {products.map((product) => (

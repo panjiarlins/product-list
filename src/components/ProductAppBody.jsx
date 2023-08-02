@@ -6,7 +6,7 @@ import AddProductButton from './AddProductButton';
 const ProductAppBody = ({ products, keyword, onSearch }) => {
   return (
     <div className='p-[5%] mx-auto'>
-      <ProductSearch keyword={keyword} onSearch={onSearch} />
+      <ProductSearch onSearch={onSearch} />
       <ProductsList
         products={
           keyword.trim() === ''
