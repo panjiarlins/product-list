@@ -1,4 +1,36 @@
 {
+  "users": [
+    {
+      "id": "user-1",
+      "name": "Test",
+      "email": "test@test.com",
+      "password": "1234"
+    },
+    {
+      "id": "user-1691036468650",
+      "name": "Test2",
+      "email": "test2@test.com",
+      "password": "12345"
+    },
+    {
+      "id": "user-1691041184392",
+      "name": "Test3",
+      "email": "test3@test.com",
+      "password": "test"
+    },
+    {
+      "id": "user-1691043454185",
+      "name": "Test4",
+      "email": "test4@test.com",
+      "password": "12345678"
+    },
+    {
+      "id": "user-1691044610607",
+      "name": "Test5",
+      "email": "test5@test.com",
+      "password": "1234"
+    }
+  ],
   "products": [
     {
       "id": "products-1",
